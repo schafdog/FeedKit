@@ -26,13 +26,19 @@ let package = Package(
       ]
     )
   ],
+  dependencies: [
+    .package(url: "https://github.com/swiftlang/swift-testing.git", from: "0.9.0")
+  ],
   targets: [
     .target(
       name: "XMLKit"
     ),
     .testTarget(
       name: "XMLKitTests",
-      dependencies: ["XMLKit"],
+      dependencies: [
+        "XMLKit",
+        .product(name: "Testing", package: "swift-testing")
+      ],
       resources: [
         .process("Resources/xml/Sample.xml")
       ]
@@ -46,7 +52,8 @@ let package = Package(
     .testTarget(
       name: "FeedKitTests",
       dependencies: [
-        "FeedKit"
+        "FeedKit",
+        .product(name: "Testing", package: "swift-testing")
       ],
       resources: [
         .process("Resources/json/feed.json"),
