@@ -65,7 +65,10 @@ let package = Package(
         .process("Resources/xml/iTunes.xml"),
         .process("Resources/xml/YouTube.xml"),
         .process("Resources/xml/GeoRSSSimple.xml"),
-        .process("Resources/xml/PodCast.xml")	
+        .process("Resources/xml/Podcast.xml"),
+        .process("Resources/xml/SourceMarkdown.xml"),
+        .process("Resources/xml/NetNewsWire.xml"),
+        .process("Resources/xml/CommentAPI.xml")
       ]
     )
   ]
