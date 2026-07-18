@@ -234,6 +234,7 @@ extension XMLNode: XMLStringConvertible {
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
     } else if let text {
       // Element has text, close opening tag and add text
+      let text = isXhtml ? text : text.escapeCharacters()
       xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
 
     } else {
@@ -257,7 +258,7 @@ extension XMLNode {
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // Append each attribute in the format: name="value".
       for attribute in attributesNode.children ?? [] {
-        result += " \(attribute.name)=\"\(attribute.text ?? "")\""
+        result += " \(attribute.name)=\"\((attribute.text ?? "").escapeCharacters())\""
       }
     }
     return result
