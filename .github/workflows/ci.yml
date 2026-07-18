@@ -57,7 +57,7 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=macOS,arch=arm64' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=macOS,arch=arm64' -skipMacroValidation test | xcbeautify
 
   macos-build-and-test-xcodebuild-ios:
     name: Test (xcodebuild iOS)
@@ -73,7 +73,7 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17' -skipMacroValidation test | xcbeautify
 
   macos-build-and-test-xcodebuild-tvos:
     name: Test (xcodebuild tvOS)
@@ -89,7 +89,7 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV' -skipMacroValidation test | xcbeautify
 
   macos-build-and-test-xcodebuild-watchos:
     name: Test (xcodebuild watchOS)
@@ -105,7 +105,7 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)' -skipMacroValidation test | xcbeautify
 
   macos-build-and-test-xcodebuild-visionos:
     name: Test (xcodebuild visionOS)
@@ -121,4 +121,4 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=26.2' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=26.2' -skipMacroValidation test | xcbeautify
