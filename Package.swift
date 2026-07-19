@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "FeedKit",
   platforms: [
-    .macOS(.v12),
+    .macOS(.v13),
     .iOS(.v15),
     .watchOS(.v8),
     .tvOS(.v15),
@@ -27,7 +27,6 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/swiftlang/swift-testing.git", from: "0.9.0")
   ],
   targets: [
     .target(
@@ -37,7 +36,6 @@ let package = Package(
       name: "XMLKitTests",
       dependencies: [
         "XMLKit",
-        .product(name: "Testing", package: "swift-testing")
       ],
       resources: [
         .process("Resources/xml/Sample.xml")
@@ -53,7 +51,6 @@ let package = Package(
       name: "FeedKitTests",
       dependencies: [
         "FeedKit",
-        .product(name: "Testing", package: "swift-testing")
       ],
       resources: [
         .process("Resources/json/feed.json"),
